@@ -13,29 +13,27 @@
             box-sizing: border-box;
         }
 
-        .container {
+        body {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 1rem;
             justify-content: stretch;
-            width: fit-content;
-            margin-inline: auto;
-
+            gap: .5rem;
         }
 
         .color {
-            max-width: 10rem;
             font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
             height: auto;
-            aspect-ratio: 1;
             border: none;
             color: transparent;
-            font-size: 1rem;
+            font-size: .8rem;
+            width: 100%;
+            aspect-ratio: 1;
 
             cursor: pointer;
             transition: transform 0.2s;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             position: relative;
+            z-index: 1;
         }
 
         .color span {
@@ -53,11 +51,11 @@
             color: white;
             animation: fly .8s ease-in-out forwards;
             position: absolute;
-            font-size: 1.2rem;
             top: 0;
-            left: -50%;
+            left: 0;
             text-shadow: 0 0 2px black;
-            width: 200%;
+            width: 100%;
+            z-index: 2;
         }
 
         @keyframes fly {
@@ -79,7 +77,7 @@
 
     <script type="module">
         document.querySelectorAll('.color').forEach(button => {
-            const color = button.textContent.toLowerCase();
+            const color = button.textContent.toLowerCase().replace(/\s+/g, '');
             button.style.backgroundColor = color;
             button.addEventListener('click', () => {
                 navigator.clipboard.writeText(color);
@@ -92,152 +90,146 @@
 </head>
 
 <body>
-
-    <div class="container">
-        <!-- Buttons for all HTML color names, ordered as on davidbau.com/colors/, with span inside each button -->
         <button class="color"><span>White</span></button>
         <button class="color"><span>Gainsboro</span></button>
         <button class="color"><span>Silver</span></button>
-        <button class="color"><span>DarkGray</span></button>
+        <button class="color"><span>Dark Gray</span></button>
         <button class="color"><span>Gray</span></button>
-        <button class="color"><span>DimGray</span></button>
+        <button class="color"><span>Dim Gray</span></button>
         <button class="color"><span>Black</span></button>
-        <button class="color"><span>WhiteSmoke</span></button>
-        <button class="color"><span>LightGray</span></button>
-        <button class="color"><span>LightCoral</span></button>
-        <button class="color"><span>RosyBrown</span></button>
-        <button class="color"><span>IndianRed</span></button>
+        <button class="color"><span>White Smoke</span></button>
+        <button class="color"><span>Light Gray</span></button>
+        <button class="color"><span>Light Coral</span></button>
+        <button class="color"><span>Rosy Brown</span></button>
+        <button class="color"><span>Indian Red</span></button>
         <button class="color"><span>Red</span></button>
         <button class="color"><span>Maroon</span></button>
         <button class="color"><span>Snow</span></button>
-        <button class="color"><span>MistyRose</span></button>
+        <button class="color"><span>Misty Rose</span></button>
         <button class="color"><span>Salmon</span></button>
-        <button class="color"><span>OrangeRed</span></button>
+        <button class="color"><span>Orange Red</span></button>
         <button class="color"><span>Chocolate</span></button>
         <button class="color"><span>Brown</span></button>
-        <button class="color"><span>DarkRed</span></button>
-        <button class="color"><span>SeaShell</span></button>
-        <button class="color"><span>PeachPuff</span></button>
+        <button class="color"><span>Dark Red</span></button>
+        <button class="color"><span>Sea Shell</span></button>
+        <button class="color"><span>Peach Puff</span></button>
         <button class="color"><span>Tomato</span></button>
-        <button class="color"><span>DarkOrange</span></button>
+        <button class="color"><span>Dark Orange</span></button>
         <button class="color"><span>Peru</span></button>
-        <button class="color"><span>FireBrick</span></button>
+        <button class="color"><span>Fire Brick</span></button>
         <button class="color"><span>Olive</span></button>
         <button class="color"><span>Linen</span></button>
         <button class="color"><span>Bisque</span></button>
-        <button class="color"><span>DarkSalmon</span></button>
+        <button class="color"><span>Dark Salmon</span></button>
         <button class="color"><span>Orange</span></button>
-        <button class="color"><span>GoldenRod</span></button>
+        <button class="color"><span>Golden Rod</span></button>
         <button class="color"><span>Sienna</span></button>
-        <button class="color"><span>DarkOliveGreen</span></button>
-        <button class="color"><span>OldLace</span></button>
-        <button class="color"><span>AntiqueWhite</span></button>
+        <button class="color"><span>Dark Olive Green</span></button>
+        <button class="color"><span>Old Lace</span></button>
+        <button class="color"><span>Antique White</span></button>
         <button class="color"><span>Coral</span></button>
         <button class="color"><span>Gold</span></button>
-        <button class="color"><span>LimeGreen</span></button>
-        <button class="color"><span>SaddleBrown</span></button>
-        <button class="color"><span>DarkGreen</span></button>
-        <button class="color"><span>FloralWhite</span></button>
-        <button class="color"><span>NavajoWhite</span></button>
-        <button class="color"><span>LightSalmon</span></button>
-        <button class="color"><span>DarkKhaki</span></button>
+        <button class="color"><span>Lime Green</span></button>
+        <button class="color"><span>Saddle Brown</span></button>
+        <button class="color"><span>Dark Green</span></button>
+        <button class="color"><span>Floral White</span></button>
+        <button class="color"><span>Navajo White</span></button>
+        <button class="color"><span>Light Salmon</span></button>
+        <button class="color"><span>Dark Khaki</span></button>
         <button class="color"><span>Lime</span></button>
-        <button class="color"><span>DarkGoldenRod</span></button>
+        <button class="color"><span>Dark Golden Rod</span></button>
         <button class="color"><span>Green</span></button>
         <button class="color"><span>Cornsilk</span></button>
-        <button class="color"><span>BlanchedAlmond</span></button>
-        <button class="color"><span>SandyBrown</span></button>
+        <button class="color"><span>Blanched Almond</span></button>
+        <button class="color"><span>Sandy Brown</span></button>
         <button class="color"><span>Yellow</span></button>
-        <button class="color"><span>MediumSeaGreen</span></button>
-        <button class="color"><span>OliveDrab</span></button>
-        <button class="color"><span>ForestGreen</span></button>
+        <button class="color"><span>Medium Sea Green</span></button>
+        <button class="color"><span>Olive Drab</span></button>
+        <button class="color"><span>Forest Green</span></button>
         <button class="color"><span>Ivory</span></button>
-        <button class="color"><span>PapayaWhip</span></button>
-        <button class="color"><span>BurlyWood</span></button>
-        <button class="color"><span>YellowGreen</span></button>
-        <button class="color"><span>SpringGreen</span></button>
-        <button class="color"><span>SeaGreen</span></button>
-        <button class="color"><span>DarkSlateGray</span></button>
+        <button class="color"><span>Papaya Whip</span></button>
+        <button class="color"><span>Burly Wood</span></button>
+        <button class="color"><span>Yellow Green</span></button>
+        <button class="color"><span>Spring Green</span></button>
+        <button class="color"><span>Sea Green</span></button>
+        <button class="color"><span>Dark Slate Gray</span></button>
         <button class="color"><span>Beige</span></button>
         <button class="color"><span>Moccasin</span></button>
         <button class="color"><span>Tan</span></button>
         <button class="color"><span>Chartreuse</span></button>
-        <button class="color"><span>MediumSpringGreen</span></button>
-        <button class="color"><span>LightSeaGreen</span></button>
+        <button class="color"><span>Medium Spring Green</span></button>
+        <button class="color"><span>Light Sea Green</span></button>
         <button class="color"><span>Teal</span></button>
-        <button class="color"><span>LightYellow</span></button>
+        <button class="color"><span>Light Yellow</span></button>
         <button class="color"><span>Wheat</span></button>
         <button class="color"><span>Khaki</span></button>
-        <button class="color"><span>LawnGreen</span></button>
+        <button class="color"><span>Lawn Green</span></button>
         <button class="color"><span>Aqua</span></button>
-        <button class="color"><span>DarkTurquoise</span></button>
-        <button class="color"><span>DarkCyan</span></button>
-        <button class="color"><span>LightGoldenRodYellow</span></button>
-        <button class="color"><span>LemonChiffon</span></button>
-        <button class="color"><span>GreenYellow</span></button>
-        <button class="color"><span>DarkSeaGreen</span></button>
+        <button class="color"><span>Dark Turquoise</span></button>
+        <button class="color"><span>Dark Cyan</span></button>
+        <button class="color"><span>Light Golden Rod Yellow</span></button>
+        <button class="color"><span>Lemon Chiffon</span></button>
+        <button class="color"><span>Green Yellow</span></button>
+        <button class="color"><span>Dark Sea Green</span></button>
         <button class="color"><span>Cyan</span></button>
-        <button class="color"><span>DeepSkyBlue</span></button>
-        <button class="color"><span>MidnightBlue</span></button>
-        <button class="color"><span>HoneyDew</span></button>
-        <button class="color"><span>PaleGoldenRod</span></button>
-        <button class="color"><span>LightGreen</span></button>
-        <button class="color"><span>MediumAquaMarine</span></button>
-        <button class="color"><span>CadetBlue</span></button>
-        <button class="color"><span>SteelBlue</span></button>
+        <button class="color"><span>Deep Sky Blue</span></button>
+        <button class="color"><span>Midnight Blue</span></button>
+        <button class="color"><span>Honey Dew</span></button>
+        <button class="color"><span>Pale Golden Rod</span></button>
+        <button class="color"><span>Light Green</span></button>
+        <button class="color"><span>Medium Aqua Marine</span></button>
+        <button class="color"><span>Cadet Blue</span></button>
+        <button class="color"><span>Steel Blue</span></button>
         <button class="color"><span>Navy</span></button>
-        <button class="color"><span>MintCream</span></button>
-        <button class="color"><span>PaleGreen</span></button>
-        <button class="color"><span>SkyBlue</span></button>
+        <button class="color"><span>Mint Cream</span></button>
+        <button class="color"><span>Pale Green</span></button>
+        <button class="color"><span>Sky Blue</span></button>
         <button class="color"><span>Turquoise</span></button>
-        <button class="color"><span>DodgerBlue</span></button>
+        <button class="color"><span>Dodger Blue</span></button>
         <button class="color"><span>Blue</span></button>
-        <button class="color"><span>DarkBlue</span></button>
+        <button class="color"><span>Dark Blue</span></button>
         <button class="color"><span>Azure</span></button>
         <button class="color"><span>Aquamarine</span></button>
-        <button class="color"><span>LightSkyBlue</span></button>
-        <button class="color"><span>MediumTurquoise</span></button>
-        <button class="color"><span>LightSlateGray</span></button>
-        <button class="color"><span>BlueViolet</span></button>
-        <button class="color"><span>MediumBlue</span></button>
-        <button class="color"><span>LightCyan</span></button>
-        <button class="color"><span>PaleTurquoise</span></button>
-        <button class="color"><span>LightSteelBlue</span></button>
-        <button class="color"><span>CornflowerBlue</span></button>
-        <button class="color"><span>SlateGray</span></button>
-        <button class="color"><span>DarkOrchid</span></button>
-        <button class="color"><span>DarkSlateBlue</span></button>
-        <button class="color"><span>AliceBlue</span></button>
-        <button class="color"><span>PowderBlue</span></button>
+        <button class="color"><span>Light Sky Blue</span></button>
+        <button class="color"><span>Medium Turquoise</span></button>
+        <button class="color"><span>Light Slate Gray</span></button>
+        <button class="color"><span>Blue Violet</span></button>
+        <button class="color"><span>Medium Blue</span></button>
+        <button class="color"><span>Light Cyan</span></button>
+        <button class="color"><span>Pale Turquoise</span></button>
+        <button class="color"><span>Light Steel Blue</span></button>
+        <button class="color"><span>Cornflower Blue</span></button>
+        <button class="color"><span>Slate Gray</span></button>
+        <button class="color"><span>Dark Orchid</span></button>
+        <button class="color"><span>Dark Slate Blue</span></button>
+        <button class="color"><span>Alice Blue</span></button>
+        <button class="color"><span>Powder Blue</span></button>
         <button class="color"><span>Thistle</span></button>
-        <button class="color"><span>MediumSlateBlue</span></button>
-        <button class="color"><span>RoyalBlue</span></button>
-        <button class="color"><span>DarkViolet</span></button>
-        <button class="color"><span>RebeccaPurple</span></button>
-        <button class="color"><span>GhostWhite</span></button>
-        <button class="color"><span>LightBlue</span></button>
+        <button class="color"><span>Medium Slate Blue</span></button>
+        <button class="color"><span>Royal Blue</span></button>
+        <button class="color"><span>Dark Violet</span></button>
+        <button class="color"><span>Rebecca Purple</span></button>
+        <button class="color"><span>Ghost White</span></button>
+        <button class="color"><span>Light Blue</span></button>
         <button class="color"><span>Plum</span></button>
-        <button class="color"><span>MediumPurple</span></button>
-        <button class="color"><span>SlateBlue</span></button>
+        <button class="color"><span>Medium Purple</span></button>
+        <button class="color"><span>Slate Blue</span></button>
         <button class="color"><span>Magenta</span></button>
         <button class="color"><span>Indigo</span></button>
         <button class="color"><span>Lavender</span></button>
         <button class="color"><span>Pink</span></button>
         <button class="color"><span>Violet</span></button>
         <button class="color"><span>Orchid</span></button>
-        <button class="color"><span>MediumOrchid</span></button>
-        <button class="color"><span>MediumVioletRed</span></button>
+        <button class="color"><span>Medium Orchid</span></button>
+        <button class="color"><span>Medium Violet Red</span></button>
         <button class="color"><span>Purple</span></button>
-        <button class="color"><span>LavenderBlush</span></button>
-        <button class="color"><span>LightPink</span></button>
-        <button class="color"><span>HotPink</span></button>
-        <button class="color"><span>PaleVioletRed</span></button>
-        <button class="color"><span>DeepPink</span></button>
+        <button class="color"><span>Lavender Blush</span></button>
+        <button class="color"><span>Light Pink</span></button>
+        <button class="color"><span>Hot Pink</span></button>
+        <button class="color"><span>Pale Violet Red</span></button>
+        <button class="color"><span>Deep Pink</span></button>
         <button class="color"><span>Crimson</span></button>
-        <button class="color"><span>DarkMagenta</span></button>
-    </div>
-
-    <div></div>
+        <button class="color"><span>Dark Magenta</span></button>
 
 </body>
 
