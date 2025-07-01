@@ -7,16 +7,26 @@
     <title>Color-Picker</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .container {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            /* Limit to max 7 columns */
-            gap: 2rem;
+            gap: 1rem;
+            justify-content: stretch;
+            width: fit-content;
+            margin-inline: auto;
+
         }
 
         .color {
+            max-width: 10rem;
             font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
-            width: 100%;
+            height: auto;
             aspect-ratio: 1;
             border: none;
             color: transparent;
@@ -24,7 +34,7 @@
 
             cursor: pointer;
             transition: transform 0.2s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 5px rgba(128, 128, 128, 0.5);
             position: relative;
         }
 
